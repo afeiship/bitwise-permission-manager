@@ -9,6 +9,9 @@ init4backend(LngDetect, null, {
   debug: false
 });
 
+// fix for vite
+import 'moment/dist/locale/zh-cn'
+
 ReactDOM.render(
   <Suspense fallback={<div>Loading...</div>}>
     <LocaleProvider>

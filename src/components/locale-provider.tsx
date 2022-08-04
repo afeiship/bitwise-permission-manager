@@ -24,7 +24,7 @@ const LocaleProvider = ({ children, locales, ...props }: LocaleProviderProps) =>
   const lang: string = i18n.language as keyof typeof locales;
   const lowerLocale = lang.toLowerCase();
 
-  moment.locale(lowerLocale);
+  moment.updateLocale(lowerLocale, null);
 
   return (
     <ConfigProvider locale={locales![lang]} {...props}>
