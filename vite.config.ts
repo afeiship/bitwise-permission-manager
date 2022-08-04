@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
+
 // import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
@@ -12,5 +14,17 @@ export default defineConfig({
     outDir: '../docs',
     emptyOutDir: true
   },
-  plugins: [reactRefresh()]
+  // vite copy public assets
+
+  plugins: [
+    reactRefresh(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: './locales',
+          dest: './locales'
+        }
+      ]
+    })
+  ]
 });
