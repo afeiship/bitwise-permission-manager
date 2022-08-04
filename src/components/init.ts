@@ -1,7 +1,6 @@
 import i18next, { i18n, InitOptions, Newable, TFunction } from 'i18next';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
-import 'moment/locale/zh-cn';
 
 export default (
   inLngDetect: Newable<any>,
