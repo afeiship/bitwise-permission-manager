@@ -19,7 +19,7 @@ export default (
       preload: false,
       backend: {
         // for all available options read the backend's repository readme file
-        loadPath: '/locales/{{lng}}.json'
+        loadPath: 'locales/{{lng}}.json'
       },
       interpolation: {
         escapeValue: false
