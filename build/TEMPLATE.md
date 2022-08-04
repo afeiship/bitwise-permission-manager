@@ -24,23 +24,7 @@ npm install -S @jswork/react-ant-i18n
   ```
 2. import js
   ```js
-  import React from 'react';
-  import ReactAntI18n from '@jswork/react-ant-i18n';
-  import styled from 'styled-components';
-
-  const Container = styled.div`
-    width: 80%;
-    margin: 30px auto 0;
-  `;
-
-  export default (props: any) => {
-    return (
-      <Container>
-        <ReactAntI18n />
-      </Container>
-    );
-  };
-
+__GENERATE_DAPP__
   ```
 
 ## preview
