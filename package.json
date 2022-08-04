@@ -1,7 +1,7 @@
 {
   "name": "@jswork/react-ant-i18n",
   "homepage": "https://js.work",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "I18n for antd.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -89,5 +89,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/afeiship/boilerplate-react-ts-component.git"
-  }
+  },
+  "keywords": [
+    "react",
+    "ant",
+    "i18n",
+    "moment",
+    "provider",
+    "i8next"
+  ]
 }
