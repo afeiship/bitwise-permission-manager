@@ -29,6 +29,7 @@ __GENERATE_DAPP__
 
 ## preview
 - https://afeiship.github.io/react-ant-i18n/
+- https://js.work/works/0f2835cd867fb
 
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-ant-i18n/blob/master/LICENSE.txt).
