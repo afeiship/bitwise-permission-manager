@@ -18,3 +18,5 @@ dist
 dist-ssr
 *.local
 .vite
+
+cypress/videos/
