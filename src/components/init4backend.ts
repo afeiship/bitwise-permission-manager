@@ -9,7 +9,6 @@ export default (
 ): Promise<TFunction> => {
   const instance = inI18nInstance || i18next.use(inLngDetect).use(Backend).use(initReactI18next);
   const options = Object.assign(
-    {},
     {
       // lng:'zh',
       supportedLngs: ['zh-CN', 'en-US'],
