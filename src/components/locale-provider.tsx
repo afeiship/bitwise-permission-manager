@@ -2,13 +2,13 @@ import React from 'react';
 import { ConfigProvider } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Locale } from 'antd/es/locale-provider';
+import { ConfigProviderProps } from 'antd/es/config-provider';
 import { ReactNode } from 'react';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
 import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
-import { ConfigProviderProps } from 'antd/es/config-provider';
 
 const locales = { 'en-US': enUS, 'zh-CN': zhCN };
 
