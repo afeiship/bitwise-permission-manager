@@ -4,8 +4,8 @@ import { initReactI18next } from 'react-i18next';
 
 export default (
   inLngDetect: Newable<any>,
-  inI18nInstance?: i18n | null,
-  inInitOptions?: InitOptions
+  inInitOptions?: InitOptions,
+  inI18nInstance?: i18n | null
 ): Promise<TFunction> => {
   const instance = inI18nInstance || i18next.use(inLngDetect).use(Backend).use(initReactI18next);
   const options = Object.assign(
