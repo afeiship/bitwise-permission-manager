@@ -27,8 +27,8 @@ export default () => {
 
   return (
     <Container>
-      <div className='App'>
-        <header className='App-header'>
+      <div className="App">
+        <header className="App-header">
           <Space>
             <Avatar src={`https://randomuser.me/api/portraits/lego/${img}.jpg`} size={120} />
             <Select
@@ -38,22 +38,26 @@ export default () => {
               options={items}
             />
           </Space>
-          <Space direction='vertical'>
+          <Space direction="vertical">
             <h1 style={{ color: '#fff' }}>{t('key')}</h1>
-            <p dangerouslySetInnerHTML={
-              { __html: t('desc', { interpolation: { escapeValue: false } }) }
-            } />
+            <p
+              dangerouslySetInnerHTML={{
+                __html: t('desc', { interpolation: { escapeValue: false } })
+              }}
+            />
             <Table style={{ width: 600 }} dataSource={[]} />
             <Space>
               {/* @ts-ignore */}
               <DatePicker />
               <TimePicker />
-              <Button type='primary' onClick={() => setVisible(true)}>{t('open-a-modal')}</Button>
+              <Button type="primary" onClick={() => setVisible(true)}>
+                {t('open-a-modal')}
+              </Button>
             </Space>
           </Space>
         </header>
 
-        <Modal visible={visible} onCancel={() => setVisible(false)}>
+        <Modal visible={visible} onOk={() => setVisible(false)} onCancel={() => setVisible(false)}>
           {t('mtxt')}
         </Modal>
       </div>
