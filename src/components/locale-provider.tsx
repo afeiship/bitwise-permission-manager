@@ -10,7 +10,7 @@ import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
 import { ConfigProviderProps } from 'antd/es/config-provider';
 
-const defLocals = { 'en-US': enUS, 'zh-CN': zhCN };
+const locales = { 'en-US': enUS, 'zh-CN': zhCN };
 
 type LocaleProviderProps = {
   children: ReactNode;
@@ -19,17 +19,22 @@ type LocaleProviderProps = {
   };
 } & ConfigProviderProps;
 
-export const LocaleProvider = ({ children, locales, ...props }: LocaleProviderProps) => {
+const LocaleProvider = ({ children, locales, ...props }: LocaleProviderProps) => {
   const { i18n } = useTranslation();
-  const theLocales = locales || defLocals;
-  const lang = i18n.language as keyof typeof theLocales;
+  const lang: string = i18n.language as keyof typeof locales;
   const lowerLocale = lang.toLowerCase();
 
   moment.locale(lowerLocale);
 
   return (
-    <ConfigProvider locale={theLocales[lang]} {...props}>
+    <ConfigProvider locale={locales![lang]} {...props}>
       {children}
     </ConfigProvider>
   );
 };
+
+LocaleProvider.defaultProps = {
+  locales
+};
+
+export default LocaleProvider;

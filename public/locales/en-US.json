@@ -1,3 +1,5 @@
 {
-  "key": "hello world"
+  "key": "hello world",
+  "open-a-modal": "Open a Modal",
+  "desc": "Edit <code>src/App.tsx</code> and save to reload."
 }

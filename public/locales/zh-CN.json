@@ -1,3 +1,5 @@
 {
-  "key": "你好世界"
+  "key": "你好世界",
+  "open-a-modal": "打开对话框",
+  "desc": "编辑 <code>src/App.tsx</code> 然后保存."
 }

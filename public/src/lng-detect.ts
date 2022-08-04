@@ -3,7 +3,8 @@ import Cookies from 'js-cookie';
 export default class {
   public static readonly type = 'languageDetector';
 
-  init() {}
+  init() {
+  }
 
   detect() {
     return Cookies.get('lang') || localStorage.getItem('i18next.lang');
