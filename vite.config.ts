@@ -22,7 +22,7 @@ export default defineConfig({
       targets: [
         {
           src: './locales',
-          dest: './locales'
+          dest: '.'
         }
       ]
     })
