@@ -1,4 +1,4 @@
-describe('empty spec', () => {
+describe('en-US/zh-CN basic e2e test', () => {
   it('init ui should have english elements', () => {
     cy.visit('http://localhost:3000');
     // h1 have text "hello world"
