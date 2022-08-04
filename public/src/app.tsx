@@ -1,9 +1,13 @@
 import React from 'react';
 import { useIntl } from '../../src/main';
 import styled from 'styled-components';
-import { Select, Space, Table, DatePicker, TimePicker } from 'antd';
+import { Select, Space, Table, DatePicker, TimePicker, Avatar } from 'antd';
 
-const Container = styled.div``;
+const Container = styled.div`
+  .ant-avatar {
+    margin: 10px 0;
+  }
+`;
 
 const items = [
   { value: 'en-US', label: 'English' },
@@ -16,6 +20,7 @@ export default () => {
     <Container>
       <div className="App">
         <header className="App-header">
+          <Avatar src="https://randomuser.me/api/portraits/lego/7.jpg" size={120} />
           <Select
             defaultValue={i18n.language}
             style={{ width: 120 }}
