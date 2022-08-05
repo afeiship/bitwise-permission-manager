@@ -1,13 +1,9 @@
-import i18next, { i18n, InitOptions, Newable, TFunction } from 'i18next';
+import i18next, { i18n, InitOptions, TFunction } from 'i18next';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
-export default (
-  inLngDetect: Newable<any>,
-  inInitOptions?: InitOptions,
-  inI18nInstance?: i18n | null
-): Promise<TFunction> => {
-  const instance = inI18nInstance || i18next.use(inLngDetect).use(Backend).use(initReactI18next);
+export default (inInitOptions?: InitOptions, inI18nInstance?: i18n | null): Promise<TFunction> => {
+  const instance = inI18nInstance || i18next.use(Backend).use(initReactI18next);
   const options = Object.assign(
     {
       // lng:'zh',
