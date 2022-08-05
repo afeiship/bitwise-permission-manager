@@ -2,9 +2,10 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './style.scss';
 import { init4backend, LocaleProvider } from '../../src/main';
+import LngDetect from './lng-detect';
 import App from './app';
 
-init4backend({ debug: false });
+init4backend({ debug: false }, [LngDetect]);
 
 // fix for vite
 import 'moment/dist/locale/zh-cn';

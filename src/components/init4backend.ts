@@ -1,9 +1,15 @@
-import i18next, { i18n, InitOptions, TFunction } from 'i18next';
+import i18next, { InitOptions, Module, TFunction } from 'i18next';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
-export default (inInitOptions?: InitOptions, inI18nInstance?: i18n | null): Promise<TFunction> => {
-  const instance = inI18nInstance || i18next.use(Backend).use(initReactI18next);
+export interface ThirdPartyModule extends Module {}
+
+export default (
+  inInitOptions?: InitOptions,
+  inModules?: ThirdPartyModule[]
+): Promise<TFunction> => {
+  const modules = [Backend, initReactI18next, ...(inModules || [])];
+  const instance = modules.reduce((instance, module) => instance.use(module), i18next);
   const options = Object.assign(
     {
       // lng:'zh',
