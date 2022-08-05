@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import requireTransform from 'vite-plugin-require-transform';
 
 // import { VitePWA } from 'vite-plugin-pwa';
 
@@ -14,6 +15,11 @@ export default defineConfig({
     outDir: '../docs',
     emptyOutDir: true
   },
+  resolve: {
+    alias: {
+      '@': 'src'
+    }
+  },
   // vite copy public assets
 
   plugins: [
@@ -25,6 +31,9 @@ export default defineConfig({
           dest: '.'
         }
       ]
+    }),
+    requireTransform({
+      fileRegex: /.ts$|.tsx$/
     })
   ]
 });

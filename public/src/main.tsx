@@ -1,18 +1,21 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './style.scss';
-import { init4backend, LocaleProvider } from '../../src/main';
+import { LocaleProvider } from '../../src/main';
 import LngDetect from './lng-detect';
 import App from './app';
 
-init4backend({ debug: false }, [LngDetect]);
+const resources = {
+  'en-US': { translation: require('../locales/en-US.json') },
+  'zh-CN': { translation: require('../locales/zh-CN.json') }
+};
 
 // fix for vite
 import 'moment/dist/locale/zh-cn';
 
 ReactDOM.render(
   <Suspense fallback={<div>Loading...</div>}>
-    <LocaleProvider>
+    <LocaleProvider mode="memory" options={{ resources }} plugins={[LngDetect]}>
       <App />
     </LocaleProvider>
   </Suspense>,
