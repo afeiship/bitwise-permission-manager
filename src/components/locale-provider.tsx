@@ -7,7 +7,7 @@ import { ConfigProviderProps } from 'antd/es/config-provider';
 import { ReactNode } from 'react';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import { ThirdPartyModule } from './types';
+import { ThirdPartyModule } from './shared';
 
 // modes
 import init4backend from './init4backend';
