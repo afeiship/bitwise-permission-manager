@@ -2,8 +2,6 @@ import i18next, { InitOptions, Module } from 'i18next';
 
 export interface ThirdPartyModule extends Module {}
 
-export type BackendInitOptions = Omit<InitOptions, 'resources'>;
-
 export const SHARED_INIT_OPTIONS = {
   supportedLngs: ['zh-CN', 'en-US'],
   fallbackLng: 'en-US',
