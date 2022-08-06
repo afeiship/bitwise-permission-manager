@@ -1,7 +1,6 @@
-import i18next, { InitOptions, Module } from 'i18next';
+import i18next, { InitOptions } from 'i18next';
 import { initReactI18next } from 'react-i18next';
-
-export interface ThirdPartyModule extends Module {}
+import { ThirdPartyModule } from './types';
 
 export default (inInitOptions?: InitOptions, inModules?: ThirdPartyModule[]) => {
   const modules = [initReactI18next, ...(inModules || [])];

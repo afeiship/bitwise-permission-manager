@@ -1,10 +1,7 @@
-import i18next, { InitOptions, Module, TFunction } from 'i18next';
+import i18next, { TFunction } from 'i18next';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
-
-export interface ThirdPartyModule extends Module {}
-
-type BackendInitOptions = Omit<InitOptions, 'resources'>;
+import { ThirdPartyModule, BackendInitOptions } from './types';
 
 export default (
   inInitOptions?: BackendInitOptions,

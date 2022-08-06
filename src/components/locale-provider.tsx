@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 import { ConfigProvider } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { InitOptions, Module } from 'i18next';
+import { InitOptions } from 'i18next';
 import { Locale } from 'antd/es/locale-provider';
 import { ConfigProviderProps } from 'antd/es/config-provider';
 import { ReactNode } from 'react';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import { ThirdPartyModule } from './types';
 
 // modes
 import init4backend from './init4backend';
@@ -16,8 +17,6 @@ import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
 
 const locales = { 'en-US': enUS, 'zh-CN': zhCN };
-
-interface ThirdPartyModule extends Module {}
 
 type INIT_MODE = 'backend' | 'memory' | null;
 type LocaleProviderProps = {
