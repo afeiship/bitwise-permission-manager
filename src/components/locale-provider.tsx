@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { ConfigProvider } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { InitOptions } from 'i18next';
