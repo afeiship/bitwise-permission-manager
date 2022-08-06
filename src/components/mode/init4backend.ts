@@ -1,7 +1,7 @@
 import { InitOptions, TFunction } from 'i18next';
 import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
-import { ThirdPartyModule, SHARED_INIT_OPTIONS, getInstance4Modules } from './shared';
+import { ThirdPartyModule, SHARED_INIT_OPTIONS, getInstance4Modules } from '../shared';
 
 type BackendInitOptions = Omit<InitOptions, 'resources'>;
 

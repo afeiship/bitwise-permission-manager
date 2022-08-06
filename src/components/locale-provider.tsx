@@ -10,8 +10,8 @@ import 'moment/locale/zh-cn';
 import { ThirdPartyModule } from './shared';
 
 // modes
-import init4backend from './init4backend';
-import init4memory from './init4memory';
+import init4backend from './mode/init4backend';
+import init4memory from './mode/init4memory';
 
 import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
@@ -29,6 +29,8 @@ type LocaleProviderProps = {
   };
 } & ConfigProviderProps;
 
+let inited = false;
+
 const LocaleProvider = ({
   children,
   locales,
@@ -37,8 +39,7 @@ const LocaleProvider = ({
   plugins,
   ...props
 }: LocaleProviderProps) => {
-  const initedRef = useRef(false);
-  if (!initedRef.current) {
+  if (!inited) {
     switch (mode) {
       case 'backend':
         init4backend(options, plugins);
@@ -49,7 +50,7 @@ const LocaleProvider = ({
       default:
         console.warn('[LocaleProvider] You need init i18next first!');
     }
-    initedRef.current = true;
+    inited = true;
   }
 
   const { i18n } = useTranslation();
