@@ -17,6 +17,7 @@ import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
 
 const locales = { 'en-US': enUS, 'zh-CN': zhCN };
+let initialized = false;
 
 type INIT_MODE = 'backend' | 'memory' | null;
 type LocaleProviderProps = {
@@ -29,8 +30,6 @@ type LocaleProviderProps = {
   };
 } & ConfigProviderProps;
 
-let inited = false;
-
 const LocaleProvider = ({
   children,
   locales,
@@ -39,7 +38,7 @@ const LocaleProvider = ({
   plugins,
   ...props
 }: LocaleProviderProps) => {
-  if (!inited) {
+  if (!initialized) {
     switch (mode) {
       case 'backend':
         init4backend(options, plugins);
@@ -50,7 +49,7 @@ const LocaleProvider = ({
       default:
         console.warn('[LocaleProvider] You need init i18next first!');
     }
-    inited = true;
+    initialized = true;
   }
 
   const { i18n } = useTranslation();
