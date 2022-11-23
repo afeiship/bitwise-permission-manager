@@ -3,7 +3,9 @@ import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 import { ThirdPartyModule, SHARED_INIT_OPTIONS, getInstance4Modules } from '../shared';
 
-type BackendInitOptions = Omit<InitOptions, 'resources'>;
+type BackendInitOptions = {
+  version?: string;
+} & Omit<InitOptions, 'resources'>;
 
 export default (
   inInitOptions?: BackendInitOptions,
@@ -11,10 +13,14 @@ export default (
 ): Promise<TFunction> => {
   const modules = [Backend, initReactI18next, ...(inModules || [])];
   const instance = getInstance4Modules(modules);
+  const { version, ...initOptions } = inInitOptions || {};
   const options = {
     ...SHARED_INIT_OPTIONS,
-    backend: { loadPath: 'locales/{{lng}}.json' },
-    ...inInitOptions
+    backend: {
+      loadPath: 'locales/{{lng}}.json',
+      queryStringParams: { v: version || Date.now() }
+    },
+    ...initOptions
   };
 
   return instance.init(options);
