@@ -3,6 +3,7 @@ import App from './app';
 import { LocaleProvider } from '../../src/main';
 import React from 'react';
 import styled from 'styled-components';
+import nx from '@jswork/next';
 
 const ChangeContainer = styled.div`
   margin: 10px 0;
@@ -26,7 +27,14 @@ export const LocaleApp = () => {
     <>
       <ChangeContainer>MODE: {mode}</ChangeContainer>
       {mode === 'backend' && (
-        <LocaleProvider mode="backend" plugins={[LngDetect]}>
+        <LocaleProvider
+          mode="backend"
+          options={{ publicURL: '/' }}
+          plugins={[LngDetect]}
+          onInit={(opts) => {
+            console.log('on init opts:', opts);
+            // nx.t = opts.t;
+          }}>
           <App />
         </LocaleProvider>
       )}

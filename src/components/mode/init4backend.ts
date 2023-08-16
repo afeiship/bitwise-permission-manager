@@ -5,7 +5,10 @@ import { ThirdPartyModule, SHARED_INIT_OPTIONS, getInstance4Modules } from '../s
 
 type BackendInitOptions = {
   version?: string;
+  publicURL?: string;
 } & Omit<InitOptions, 'resources'>;
+
+declare var process: any;
 
 export default (
   inInitOptions?: BackendInitOptions,
@@ -13,11 +16,12 @@ export default (
 ): Promise<TFunction> => {
   const modules = [Backend, initReactI18next, ...(inModules || [])];
   const instance = getInstance4Modules(modules);
-  const { version, ...initOptions } = inInitOptions || {};
+  const { version, publicURL, ...initOptions } = inInitOptions || {};
+  const root = publicURL || '';
   const options = {
     ...SHARED_INIT_OPTIONS,
     backend: {
-      loadPath: 'locales/{{lng}}.json',
+      loadPath: `${root}locales/{{lng}}.json`,
       queryStringParams: { v: version || Date.now() }
     },
     ...initOptions

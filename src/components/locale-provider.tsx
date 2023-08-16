@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ConfigProvider } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { InitOptions } from 'i18next';
+import { TFunction, useTranslation } from 'react-i18next';
+import type { i18n as I18n } from 'i18next';
+import { InitOptions as I18nextInitOptions } from 'i18next';
 import { Locale } from 'antd/es/locale-provider';
 import { ConfigProviderProps } from 'antd/es/config-provider';
 import { ReactNode } from 'react';
@@ -16,6 +17,16 @@ import init4memory from './mode/init4memory';
 import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
 
+interface InitOptions extends I18nextInitOptions {
+  publicURL?: string;
+}
+
+interface InitCallbackOptions {
+  i18n: I18n;
+  lang: string;
+  t: TFunction;
+}
+
 const locales = { 'en-US': enUS, 'zh-CN': zhCN };
 let initialized = false;
 
@@ -25,6 +36,7 @@ type LocaleProviderProps = {
   mode?: INIT_MODE;
   options?: InitOptions;
   plugins?: ThirdPartyModule[];
+  onInit?: (opts: any) => void;
   locales?: {
     [key in string]: Locale;
   };
@@ -36,6 +48,7 @@ const LocaleProvider = ({
   mode,
   options,
   plugins,
+  onInit = (opts: InitCallbackOptions) => {},
   ...props
 }: LocaleProviderProps) => {
   if (!initialized) {
@@ -52,11 +65,16 @@ const LocaleProvider = ({
     initialized = true;
   }
 
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const lang: string = i18n.language as keyof typeof locales;
   const lowerLocale = lang.toLowerCase();
 
   moment.updateLocale(lowerLocale, null);
+
+  // add onInit method
+  useEffect(() => {
+    onInit!({ i18n, t, lang });
+  }, []);
 
   return (
     <ConfigProvider locale={locales![lang]} {...props}>

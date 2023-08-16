@@ -57,7 +57,7 @@ export default () => {
           </Space>
         </header>
 
-        <Modal visible={visible} onOk={() => setVisible(false)} onCancel={() => setVisible(false)}>
+        <Modal open={visible} onOk={() => setVisible(false)} onCancel={() => setVisible(false)}>
           {t('mtxt')}
         </Modal>
       </div>
