@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ConfigProvider } from 'antd';
 import { TFunction, useTranslation } from 'react-i18next';
 import type { i18n as I18n } from 'i18next';
@@ -72,9 +72,7 @@ const LocaleProvider = ({
   moment.updateLocale(lowerLocale, null);
 
   // add onInit method
-  useEffect(() => {
-    onInit!({ i18n, t, lang });
-  }, []);
+  onInit!({ i18n, t, lang });
 
   return (
     <ConfigProvider locale={locales![lang]} {...props}>
