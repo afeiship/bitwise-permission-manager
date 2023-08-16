@@ -21,7 +21,7 @@ interface InitOptions extends I18nextInitOptions {
   publicURL?: string;
 }
 
-interface InitCallbackOptions {
+interface OnInitCallbackOptions {
   i18n: I18n;
   lang: string;
   t: TFunction;
@@ -48,7 +48,7 @@ const LocaleProvider = ({
   mode,
   options,
   plugins,
-  onInit = (opts: InitCallbackOptions) => {},
+  onInit = (_: OnInitCallbackOptions) => {},
   ...props
 }: LocaleProviderProps) => {
   if (!initialized) {
