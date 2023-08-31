@@ -41,7 +41,7 @@ Code released under [the MIT license](https://github.com/afeiship/bitwise-permis
 [license-url]: https://github.com/afeiship/bitwise-permission-manager/blob/master/LICENSE.txt
 
 [size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/bitwise-permission-manager
-[size-url]: https://github.com/afeiship/bitwise-permission-manager/blob/master/dist/bitwise-permission-manager.min.js
+[size-url]: https://github.com/afeiship/bitwise-permission-manager/blob/master/dist/index.min.js
 
 [download-image]: https://img.shields.io/npm/dm/@jswork/bitwise-permission-manager
 [download-url]: https://www.npmjs.com/package/@jswork/bitwise-permission-manager
