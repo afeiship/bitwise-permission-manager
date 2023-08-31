@@ -13,9 +13,22 @@ npm install @jswork/bitwise-permission-manager
 
 ## usage
 ```js
-import bitwisePermissionManager from '@jswork/bitwise-permission-manager';
+import bpm from '@jswork/bitwise-permission-manager';
 
-// usage goes here.
+let r = 0b100;
+let w = 0b010;
+let x = 0b001;
+let target = 0b111;
+
+// add
+let p = bpm.add(r, w, x);                // 0b111
+// remove
+let p = bpm.remove(r, w, x);            // 0b000
+// toggle
+let p = bpm.toggle(target, r, w, x);    // 0b000
+// has
+let p = bpm.has(target, r, w, x);       // true
+
 ```
 
 ## license
