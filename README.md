@@ -23,7 +23,7 @@ let target = 0b111;
 // add
 let p = bpm.add(r, w, x);                // 0b111
 // remove
-let p = bpm.remove(r, w, x);            // 0b000
+let p = bpm.remove(target, r, w, x);            // 0b000
 // toggle
 let p = bpm.toggle(target, r, w, x);    // 0b000
 // has
